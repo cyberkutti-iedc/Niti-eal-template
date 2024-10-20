@@ -18,7 +18,7 @@ embedded-hal = "1.0"
 
 [dependencies.niti-eal]
 git = "https://github.com/cyberkutti-iedc/Niti-core"
-rev = "8a24c3dcf82cd75711f59d5cc33d586a668e5813"
+rev = "d536208672b639ecde5cf505ee32e58cb1764e7b"
 {% case board -%}
   {%- when "Niti V1" -%}
     features = ["niti-v1"]
