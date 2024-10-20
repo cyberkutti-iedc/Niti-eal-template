@@ -8,7 +8,7 @@ choices = [
   "Arduino Nano New Bootloader",
   "Arduino Uno",
 ]
-default = "Niti V1 🥰"
+default = "Niti V1"
 
 [template]
 ignore=["README.md"]
