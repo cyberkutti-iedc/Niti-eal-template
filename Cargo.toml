@@ -1,0 +1,55 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+edition = "2021"
+license = "MIT"
+
+[[bin]]
+name = "{{project-name}}"
+test = false
+bench = false
+
+[dependencies]
+panic-halt = "0.2.0"
+ufmt = "0.2.0"
+nb = "1.1.0"
+embedded-hal = "1.0"
+
+[dependencies.niti-eal]
+git = "https://github.com/cyberkutti-iedc/Niti-core"
+rev = "8a24c3dcf82cd75711f59d5cc33d586a668e5813"
+{% case board -%}
+  {%- when "Niti V1" -%}
+    features = ["niti-v1"]
+  {%- when "Arduino Mega 2560" -%}
+    features = ["arduino-mega2560"]
+  {%- when "Arduino Nano" -%}
+    features = ["arduino-nano"]
+  {%- when "Arduino Nano New Bootloader" -%}
+    features = ["arduino-nano"]
+  {%- when "Arduino Uno" -%}
+    features = ["arduino-uno"]
+{%- endcase %}
+
+# The latest releases of `proc-macro2` do not support the rust toolchain that
+# we use.  Thus, we must fix this dependency to an older version where our
+# toolchain is still supported.  See https://github.com/Rahix/avr-hal/issues/537
+[build-dependencies.proc-macro2]
+version = "=1.0.79"
+
+# Configure the build for minimal size - AVRs have very little program memory
+[profile.dev]
+panic = "abort"
+lto = true
+opt-level = "s"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+debug = true
+lto = true
+opt-level = "s"
+{%- comment %}
+# vim: ft=toml.jinja2
+{% endcomment %}
