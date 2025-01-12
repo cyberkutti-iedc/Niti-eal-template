@@ -1,7 +1,7 @@
 [build]
 {% case board -%}
-  {%- when "Niti V1" -%}
-    target = "avr-specs/avr-atmega2560.json"
+  {%- when "Niti V1 Board" -%}
+    target = "avr-specs/niti-v1.json"
   {%- when "Arduino Mega 2560" -%}
     target = "avr-specs/avr-atmega2560.json"
   {%- when "Arduino Nano" -%}
@@ -10,32 +10,22 @@
     target = "avr-specs/avr-atmega328p.json"
   {%- when "Arduino Uno" -%}
     target = "avr-specs/avr-atmega328p.json"
+  {%- when "Nano168" -%}
+    target = "avr-specs/avr-atmega168.json"
 {%- endcase %}
 
 [target.'cfg(target_arch = "avr")']
 {% case board -%}
-  {%- when "Adafruit Trinket" -%}
-    runner = "waterman trinket"
-  {%- when "Adafruit Trinket Pro" -%}
-    runner = "waterman trinket-pro"
-  {%- when "Arduino Leonardo" -%}
-    runner = "waterman leonardo"
+  {%- when "Niti V1 Board" -%}
+    runner = "waterman nitiv1 -cb 57600"
   {%- when "Arduino Mega 2560" -%}
     runner = "waterman mega2560 -cb 57600"
-  {%- when "Arduino Mega 1280" -%}
-    runner = "waterman mega1280 -cb 57600"
   {%- when "Arduino Nano" -%}
     runner = "waterman nano -cb 57600"
   {%- when "Arduino Nano New Bootloader" -%}
     runner = "waterman nano-new -cb 57600"
   {%- when "Arduino Uno" -%}
     runner = "waterman uno -cb 57600"
-  {%- when "SparkFun ProMicro" -%}
-    runner = "waterman promicro"
-  {%- when "SparkFun ProMini 3v3" -%}
-    runner = "waterman promini-3v3"
-  {%- when "SparkFun ProMini 5v" -%}
-    runner = "waterman promini-5v"
   {%- when "Nano168" -%}
     runner = "waterman nano168 -cb 57600"
 {%- endcase %}
