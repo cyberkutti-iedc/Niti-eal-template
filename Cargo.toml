@@ -18,7 +18,7 @@ embedded-hal = "1.0"
 
 [dependencies.niti-hal]
 git = "https://github.com/cyberkutti-iedc/niti-hal"
-rev = "06d5ef04e6868a757ced681475930f858a7314a5"
+rev = "6902c39f0ce1180d9c0c63e388ccebfb0a2576d0"
 {% case board -%}
   {%- when "Arduino Mega 2560" -%}
     features = ["arduino-mega2560"]
