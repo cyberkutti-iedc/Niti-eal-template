@@ -18,29 +18,13 @@ fn main() -> ! {
      * examples available.
      */
 
-    {% case board -%}
-      {%- when "Adafruit Trinket" -%}
-    let mut led = pins.d1.into_output();
-      {%- when
-
-        "Arduino Mega 2560",
-        "Arduino Mega 1280",
-        "Arduino Nano",
-        "Arduino Nano New Bootloader",
-        "Arduino Uno",
-        "Nano168",
-        
-      -%}
     let mut led = pins.d13.into_output();
-      {%- when "SparkFun ProMicro" -%}
-    let mut led = pins.led_rx.into_output();
-    {%- endcase %}
+
+  
 
     loop {
         led.toggle();
         niti_hal::delay_ms(1000);
     }
 }
-{%- comment %}
-# vim: ft=rust.jinja2
-{% endcomment %}
+
