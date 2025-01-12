@@ -3,7 +3,7 @@ name = "{{project-name}}"
 version = "0.1.0"
 authors = ["{{authors}}"]
 edition = "2021"
-license = "MIT"
+license = "MIT OR Apache-2.0"
 
 [[bin]]
 name = "{{project-name}}"
@@ -16,12 +16,10 @@ ufmt = "0.2.0"
 nb = "1.1.0"
 embedded-hal = "1.0"
 
-[dependencies.niti-eal]
-git = "https://github.com/cyberkutti-iedc/Niti-core"
-rev = "d536208672b639ecde5cf505ee32e58cb1764e7b"
+[dependencies.niti-hal]
+git = "https://github.com/cyberkutti-iedc/niti-hal"
+rev = "06d5ef04e6868a757ced681475930f858a7314a5"
 {% case board -%}
-  {%- when "Niti V1" -%}
-    features = ["niti-v1"]
   {%- when "Arduino Mega 2560" -%}
     features = ["arduino-mega2560"]
   {%- when "Arduino Nano" -%}
@@ -30,6 +28,8 @@ rev = "d536208672b639ecde5cf505ee32e58cb1764e7b"
     features = ["arduino-nano"]
   {%- when "Arduino Uno" -%}
     features = ["arduino-uno"]
+  {%- when "Nano168" -%}
+    features = ["nano168"]
 {%- endcase %}
 
 # The latest releases of `proc-macro2` do not support the rust toolchain that

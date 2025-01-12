@@ -1,17 +1,18 @@
 [placeholders.board]
 type = "string"
-prompt = "Which board do you use 😎?"
+prompt = "Which board do you use?"
 choices = [
-  "Niti V1",
   "Arduino Mega 2560",
+  "Arduino Mega 1280",
   "Arduino Nano",
   "Arduino Nano New Bootloader",
   "Arduino Uno",
+  "Nano168",
 ]
-default = "Niti V1"
+default = "Arduino Uno"
 
 [template]
 ignore=["README.md"]
 
 [hooks]
-post = ["rename-readme.jelabi"]
+post = ["rename-readme.delta"]
