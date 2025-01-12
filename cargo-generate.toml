@@ -2,6 +2,7 @@
 type = "string"
 prompt = "Which board do you use?"
 choices = [
+  "Niti V1 Board",
   "Arduino Mega 2560",
   "Arduino Mega 1280",
   "Arduino Nano",
@@ -9,7 +10,7 @@ choices = [
   "Arduino Uno",
   "Nano168",
 ]
-default = "Arduino Uno"
+default = "Niti V1 Board"
 
 [template]
 ignore=["README.md"]

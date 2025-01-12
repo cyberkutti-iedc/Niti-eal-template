@@ -18,8 +18,10 @@ embedded-hal = "1.0"
 
 [dependencies.niti-hal]
 git = "https://github.com/cyberkutti-iedc/niti-hal"
-rev = "2fef6ec69f66d4ece39cbbdec9c2086acdca663e"
+rev = "e9666758ac55e3386c23194af71a2bd819760d0f"
 {% case board -%}
+  {%- when "Niti V1 Board" -%}
+    features = ["niti-v1"]
   {%- when "Arduino Mega 2560" -%}
     features = ["arduino-mega2560"]
   {%- when "Arduino Nano" -%}
@@ -34,7 +36,7 @@ rev = "2fef6ec69f66d4ece39cbbdec9c2086acdca663e"
 
 # The latest releases of `proc-macro2` do not support the rust toolchain that
 # we use.  Thus, we must fix this dependency to an older version where our
-# toolchain is still supported.  See https://github.com/Rahix/avr-hal/issues/537
+# toolchain is still supported.  See https://github.com/cyberkutti-iedc/niti-hal/issues/
 [build-dependencies.proc-macro2]
 version = "=1.0.79"
 
